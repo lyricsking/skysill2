@@ -16,8 +16,8 @@ model User {
   lastname  String? //@db.VarChar(15)
   email     String? //@db.VarChar(32)
   phoneNo   String //@db.VarChar(13)
-  passwordHash String
-  
+  password  String
+
   shopper Shopper[]
 
   @@map("users")
