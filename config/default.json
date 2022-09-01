@@ -24,8 +24,8 @@
       "expiresIn": "30d"
     },
     "local": {
-      "usernameField": "email",
-      "passwordField": "passwordHash"
+      "usernameField": "phoneNo",
+      "passwordField": "password"
     }
   },
   "sqlite": "file:./ysill.db"
