@@ -6,6 +6,6 @@ import shoppers from './shoppers/shoppers.service';
 
 export default function (app: Application): void {
   app.configure(users);
-  app.configure(orders);
   app.configure(shoppers);
+  app.configure(orders);
 }
