@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider="mysql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
@@ -24,62 +24,63 @@ model User {
 }
 
 model Business {
-  id String @id
-  ownerId String
-  contactName String
+  id           String @id
+  ownerId      String
+  contactName  String
   contactPhone String
-  activity String //enum
-  industry String
+  activity     String //enum
+  industry     String
 
-@@map("businesses")
-
+  @@map("businesses")
 }
 
-model Shop{
-  id String @id
+model Shop {
+  id         String @id
   businessId String
-  location Json
+  location   Json
 
   @@map("shops")
 }
 
-model BusinesUserRole{
-  id String @id
+model BusinesUserRole {
+  id         String @id
   businessId String
-  positions Json
+  positions  Json
 
   @@map("business_user_roles")
 }
 
-model Product{
-  id String @id  
-  name String
-  description String
-  details String
-  price Decimal
-  discount Decimal
+model Product {
+  id           String            @id
+  name         String
+  description  String
+  details      String
+  price        Decimal
+  discount     Decimal
   discountType DiscountType
-  modifiers ProductModifier[]
+  modifiers    ProductModifier[]
 
   @@map("products")
 }
 
-model ProductModifier{
-  id String @id
-  name String
+model ProductModifier {
+  id            String   @id
+  name          String
   minSelectable Int
   maxSelectable Int
-  minFree Int
-  maxFree Int
+  minFree       Int
+  maxFree       Int
+  Product       Product? @relation(fields: [productId], references: [id])
+  productId     String?
 
   @@map("product_modifiers")
 }
 
-model ProductModifierOption{
-  id String @id
-  modifierId String 
-  name String 
-  price Decimal
+model ProductModifierOption {
+  id         String  @id
+  modifierId String
+  name       String
+  price      Decimal
 
   @@map("product_modifier_options")
 }
@@ -104,7 +105,7 @@ model Order {
   @@map("orders")
 }
 
-enum DiscountType{
+enum DiscountType {
   percentage
   flat
 }

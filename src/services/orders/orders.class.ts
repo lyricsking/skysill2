@@ -1,5 +1,5 @@
 import { PrismaService, PrismaServiceOptions } from 'feathers-prisma';
-import { Application } from '../../../declarations';
+import { Application } from '../../declarations';
 
 interface Options extends PrismaServiceOptions {}
 

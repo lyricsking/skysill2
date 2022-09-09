@@ -1,6 +1,6 @@
 // Initializes the `orders` service on path `/marketplace/orders`
 import { ServiceAddons } from '@feathersjs/feathers';
-import { Application } from '../../../declarations';
+import { Application } from '../../declarations';
 import { Orders } from './orders.class';
 import hooks from './orders.hooks';
 
