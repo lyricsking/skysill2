@@ -1,28 +1,28 @@
-// Initializes the `orders` service on path `/orders`
+// Initializes the `shoppers` service on path `/shoppers`
 import { ServiceAddons } from '@feathersjs/feathers';
-import { Application } from '../../declarations';
-import { Orders } from './orders.class';
-import hooks from './orders.hooks';
+import { Application } from '../../../declarations';
+import { Shoppers } from './shoppers.class';
+import hooks from './shoppers.hooks';
 
 // Add this service to the service type index
-declare module '../../declarations' {
+declare module '../../../declarations' {
   interface ServiceTypes {
-    'orders': Orders & ServiceAddons<any>;
+    'shoppers': Shoppers & ServiceAddons<any>;
   }
 }
 
 export default function (app: Application): void {
   const options = {
-    model: 'orders',
+    model: 'shoppers',
     client: app.get('prisma'),
     paginate: app.get('paginate')
   };
 
   // Initialize our service with any options it requires
-  app.use('/orders', new Orders(options, app));
+  app.use('/shoppers', new Shoppers(options, app));
 
   // Get our initialized service so that we can register hooks
-  const service = app.service('orders');
+  const service = app.service('shoppers');
 
   service.hooks(hooks);
 }
